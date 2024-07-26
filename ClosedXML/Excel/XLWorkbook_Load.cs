@@ -490,6 +490,13 @@ namespace ClosedXML.Excel
                             OpenXmlHelper.LoadFont(runProperties, rt);
                         }
 
+                        var texts = c.GetFirstChild<CommentText>().Elements<Text>();
+                        foreach (var textElement in texts)
+                        {
+                            String text = textElement.Text.FixNewLines();
+                            var rt = xlComment.AddText(text);
+                        }
+
                         if (shape != null)
                         {
                             LoadShapeProperties(xlComment, shape);
