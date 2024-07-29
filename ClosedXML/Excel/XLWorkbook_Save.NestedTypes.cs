@@ -16,7 +16,6 @@ namespace ClosedXML.Excel
             public SaveContext()
             {
                 DifferentialFormats = new Dictionary<XLStyleValue, int>();
-                PivotSources = new Dictionary<Guid, PivotSourceInfo>();
                 RelIdGenerator = new RelIdGenerator();
                 SharedFonts = new Dictionary<XLFontValue, FontInfo>();
                 SharedNumberFormats = new Dictionary<XLNumberFormatValue, NumberFormatInfo>();
@@ -218,7 +217,6 @@ namespace ClosedXML.Excel
 
         internal struct PivotSourceInfo
         {
-            public Guid Guid;
             public IDictionary<String, PivotTableFieldInfo> Fields;
         }
 
